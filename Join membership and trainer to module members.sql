@@ -1,0 +1,3 @@
+﻿
+
+SELECT MembersTable.MembersID, MembersTable.MemberFName, MembersTable.MemberLName, MembersTable.DOB, MembersTable.JoinDate, MembershipsTable.MembershipType, MembersTable.Phone, MembersTable.Timing, MembersTable.BloodType, MembersTable.Gender, TrainersTable.TrainerFName FROM MembersTable JOIN MembershipsTable ON MembersTable.MembershipID= MembershipsTable.MembershipID  JOIN TrainersTable ON MembersTable.TrainersID = TrainersTable.TrainersID

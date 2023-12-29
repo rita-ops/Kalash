@@ -1,0 +1,1 @@
+﻿Select TrainersTable.TrainersID, CONCAT(TrainersTable.TrainerFName,' ' ,TrainersTable.TrainerLName,' ') As Trainer , TrainersTable.TrainerDOB, TrainersTable.Phone, TrainersTable.Experience, TrainersTable.Address, TrainersTable.Gender, TrainersTable.BloodType from TrainersTable
