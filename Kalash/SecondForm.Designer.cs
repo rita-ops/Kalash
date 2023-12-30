@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SecondForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,6 +52,13 @@
             this.membershipsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.billsToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.LblTotalLBP = new System.Windows.Forms.TextBox();
+            this.LblTotalDol = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.SearchTxtBox = new System.Windows.Forms.TextBox();
+            this.Search = new System.Windows.Forms.Label();
             this.BillsList = new Guna.UI2.WinForms.Guna2DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -63,8 +70,6 @@
             this.MemberLbl = new System.Windows.Forms.Label();
             this.TrainersLbl = new System.Windows.Forms.Label();
             this.Logout = new System.Windows.Forms.Label();
-            this.SearchTxtBox = new System.Windows.Forms.TextBox();
-            this.Search = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BillsList)).BeginInit();
@@ -166,14 +171,12 @@
             this.printPreviewToolStripMenuItem.Name = "printPreviewToolStripMenuItem";
             this.printPreviewToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.printPreviewToolStripMenuItem.Text = "P&rint P&review";
-            this.printPreviewToolStripMenuItem.Click += new System.EventHandler(this.PrintPreviewItem_Click);
             // 
             // printToolStripMenuItem1
             // 
             this.printToolStripMenuItem1.Name = "printToolStripMenuItem1";
             this.printToolStripMenuItem1.Size = new System.Drawing.Size(143, 22);
             this.printToolStripMenuItem1.Text = "P&rint";
-            this.printToolStripMenuItem1.Click += new System.EventHandler(this.PrintGridItem_Click);
             // 
             // existToolStripMenuItem
             // 
@@ -222,6 +225,11 @@
             // 
             this.panel3.AutoScroll = true;
             this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.LblTotalLBP);
+            this.panel3.Controls.Add(this.LblTotalDol);
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.SearchTxtBox);
             this.panel3.Controls.Add(this.Search);
             this.panel3.Controls.Add(this.BillsList);
@@ -231,36 +239,103 @@
             this.panel3.Size = new System.Drawing.Size(1213, 716);
             this.panel3.TabIndex = 15;
             // 
+            // LblTotalLBP
+            // 
+            this.LblTotalLBP.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTotalLBP.Location = new System.Drawing.Point(1009, 656);
+            this.LblTotalLBP.Name = "LblTotalLBP";
+            this.LblTotalLBP.Size = new System.Drawing.Size(100, 24);
+            this.LblTotalLBP.TabIndex = 18;
+            // 
+            // LblTotalDol
+            // 
+            this.LblTotalDol.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTotalDol.Location = new System.Drawing.Point(861, 658);
+            this.LblTotalDol.Name = "LblTotalDol";
+            this.LblTotalDol.Size = new System.Drawing.Size(100, 24);
+            this.LblTotalDol.TabIndex = 18;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.DarkRed;
+            this.label4.Location = new System.Drawing.Point(967, 660);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(19, 20);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "$";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.DarkRed;
+            this.label3.Location = new System.Drawing.Point(1115, 660);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(42, 20);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "LBP";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DarkRed;
+            this.label1.Location = new System.Drawing.Point(792, 660);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 20);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Total";
+            // 
+            // SearchTxtBox
+            // 
+            this.SearchTxtBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchTxtBox.Location = new System.Drawing.Point(67, 12);
+            this.SearchTxtBox.Name = "SearchTxtBox";
+            this.SearchTxtBox.Size = new System.Drawing.Size(159, 29);
+            this.SearchTxtBox.TabIndex = 16;
+            this.SearchTxtBox.TextChanged += new System.EventHandler(this.SearchTxtBox_TextChanged);
+            // 
+            // Search
+            // 
+            this.Search.AutoSize = true;
+            this.Search.Location = new System.Drawing.Point(14, 18);
+            this.Search.Name = "Search";
+            this.Search.Size = new System.Drawing.Size(41, 13);
+            this.Search.TabIndex = 15;
+            this.Search.Text = "Search";
+            // 
             // BillsList
             // 
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            this.BillsList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.BillsList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.BillsList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Raised;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.BillsList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.BillsList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.BillsList.ColumnHeadersHeight = 50;
             this.BillsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.BillsList.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.BillsList.DefaultCellStyle = dataGridViewCellStyle6;
             this.BillsList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.BillsList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.BillsList.Location = new System.Drawing.Point(104, 74);
+            this.BillsList.Location = new System.Drawing.Point(103, 59);
             this.BillsList.Name = "BillsList";
             this.BillsList.RowHeadersVisible = false;
             this.BillsList.RowTemplate.Height = 40;
-            this.BillsList.Size = new System.Drawing.Size(1068, 428);
+            this.BillsList.Size = new System.Drawing.Size(1068, 591);
             this.BillsList.TabIndex = 12;
             this.BillsList.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.BillsList.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -391,23 +466,6 @@
             this.Logout.TabIndex = 4;
             this.Logout.Text = "Logout";
             // 
-            // SearchTxtBox
-            // 
-            this.SearchTxtBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchTxtBox.Location = new System.Drawing.Point(67, 12);
-            this.SearchTxtBox.Name = "SearchTxtBox";
-            this.SearchTxtBox.Size = new System.Drawing.Size(159, 29);
-            this.SearchTxtBox.TabIndex = 16;
-            // 
-            // Search
-            // 
-            this.Search.AutoSize = true;
-            this.Search.Location = new System.Drawing.Point(14, 18);
-            this.Search.Name = "Search";
-            this.Search.Size = new System.Drawing.Size(41, 13);
-            this.Search.TabIndex = 15;
-            this.Search.Text = "Search";
-            // 
             // SecondForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -418,6 +476,8 @@
             this.Controls.Add(this.menuStrip1);
             this.Name = "SecondForm";
             this.Text = "SecondForm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.SecondForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -468,5 +528,10 @@
         private Guna.UI2.WinForms.Guna2DataGridView BillsList;
         private System.Windows.Forms.TextBox SearchTxtBox;
         private System.Windows.Forms.Label Search;
+        private System.Windows.Forms.TextBox LblTotalLBP;
+        private System.Windows.Forms.TextBox LblTotalDol;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label1;
     }
 }

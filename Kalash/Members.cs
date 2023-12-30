@@ -158,9 +158,30 @@ namespace Kalash
             //{
             //    MessageBox.Show("Please select a row to delete.", "No Row Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             //}
-            int Key = int.Parse(MembersList.CurrentRow.Cells[0].Value.ToString());
-           // Key = dataGridView.CurrentCell.RowIndex;
-            dataGridView.Rows.RemoveAt(Key);
+
+
+            //// Check if there is at least one row selected
+            //if (MembersList.SelectedRows.Count > 0)
+            //{
+            //    // Get the selected row
+            //    DataGridViewRow selectedRow = MembersList.SelectedRows[0];
+
+            //    // Get the underlying data source (assuming it's a DataTable)
+            //    DataTable dataTable = (DataTable)MembersList.DataSource;
+
+            //    // Find the index of the selected row in the DataTable
+            //    int rowIndex = MembersList.Rows.IndexOf(selectedRow);
+
+            //    // Remove the row from the DataTable
+            //    dataTable.Rows.RemoveAt(rowIndex);
+
+            //    // Refresh the DataGridView
+            //    MembersList.Refresh();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Please select a row to delete.");
+            //}
         }
        
         private void TrainersLbl_Click(object sender, EventArgs e)

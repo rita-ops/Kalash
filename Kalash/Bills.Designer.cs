@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Bills));
             this.Date = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.BillsList = new Guna.UI2.WinForms.Guna2DataGridView();
@@ -61,11 +61,16 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.membersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.membershipsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.billsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.billsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.billsToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.paymentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.trainerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.memberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.membershipToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.billToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.existToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.trainersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.membersToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.membershipsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.billsToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.BillsList)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -90,27 +95,27 @@
             // 
             // BillsList
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.BillsList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.BillsList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.BillsList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Raised;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.BillsList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.BillsList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.BillsList.ColumnHeadersHeight = 50;
             this.BillsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.BillsList.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.BillsList.DefaultCellStyle = dataGridViewCellStyle6;
             this.BillsList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.BillsList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.BillsList.Location = new System.Drawing.Point(154, 318);
@@ -241,7 +246,7 @@
             this.Currency.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Currency.FormattingEnabled = true;
             this.Currency.Items.AddRange(new object[] {
-            "L.L.",
+            "LBP",
             "$"});
             this.Currency.Location = new System.Drawing.Point(988, 82);
             this.Currency.Name = "Currency";
@@ -283,7 +288,6 @@
             this.Search.Size = new System.Drawing.Size(41, 13);
             this.Search.TabIndex = 1;
             this.Search.Text = "Search";
-            this.Search.Click += new System.EventHandler(this.Search_Click);
             // 
             // Amounts
             // 
@@ -406,73 +410,111 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.viewToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1370, 24);
-            this.menuStrip1.TabIndex = 11;
+            this.menuStrip1.TabIndex = 13;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
+            this.fileToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.membersToolStripMenuItem,
-            this.membershipsToolStripMenuItem,
-            this.billsToolStripMenuItem,
-            this.billsToolStripMenuItem1,
-            this.paymentsToolStripMenuItem});
+            this.existToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // membersToolStripMenuItem
             // 
+            this.membersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.trainerToolStripMenuItem,
+            this.memberToolStripMenuItem,
+            this.membershipToolStripMenuItem,
+            this.billToolStripMenuItem});
             this.membersToolStripMenuItem.Name = "membersToolStripMenuItem";
-            this.membersToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-            this.membersToolStripMenuItem.Text = "Trainers";
+            this.membersToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.membersToolStripMenuItem.Text = "&New";
             // 
-            // membershipsToolStripMenuItem
+            // trainerToolStripMenuItem
             // 
-            this.membershipsToolStripMenuItem.Name = "membershipsToolStripMenuItem";
-            this.membershipsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-            this.membershipsToolStripMenuItem.Text = "Members";
+            this.trainerToolStripMenuItem.Name = "trainerToolStripMenuItem";
+            this.trainerToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.trainerToolStripMenuItem.Text = "Trainer";
             // 
-            // billsToolStripMenuItem
+            // memberToolStripMenuItem
             // 
-            this.billsToolStripMenuItem.Name = "billsToolStripMenuItem";
-            this.billsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-            this.billsToolStripMenuItem.Text = "Memberships";
+            this.memberToolStripMenuItem.Name = "memberToolStripMenuItem";
+            this.memberToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.memberToolStripMenuItem.Text = "Member";
             // 
-            // billsToolStripMenuItem1
+            // membershipToolStripMenuItem
             // 
-            this.billsToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.billsToolStripMenuItem2});
-            this.billsToolStripMenuItem1.Name = "billsToolStripMenuItem1";
-            this.billsToolStripMenuItem1.Size = new System.Drawing.Size(146, 22);
-            this.billsToolStripMenuItem1.Text = "Bills";
+            this.membershipToolStripMenuItem.Name = "membershipToolStripMenuItem";
+            this.membershipToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.membershipToolStripMenuItem.Text = "Membership";
             // 
-            // billsToolStripMenuItem2
+            // billToolStripMenuItem
             // 
-            this.billsToolStripMenuItem2.Name = "billsToolStripMenuItem2";
-            this.billsToolStripMenuItem2.Size = new System.Drawing.Size(112, 22);
-            this.billsToolStripMenuItem2.Text = "All Bills";
-            this.billsToolStripMenuItem2.Click += new System.EventHandler(this.billsToolStripMenuItem2_Click);
+            this.billToolStripMenuItem.Name = "billToolStripMenuItem";
+            this.billToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.billToolStripMenuItem.Text = "Bill";
             // 
-            // paymentsToolStripMenuItem
+            // existToolStripMenuItem
             // 
-            this.paymentsToolStripMenuItem.Name = "paymentsToolStripMenuItem";
-            this.paymentsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-            this.paymentsToolStripMenuItem.Text = "Payments";
+            this.existToolStripMenuItem.Name = "existToolStripMenuItem";
+            this.existToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.Y)));
+            this.existToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.existToolStripMenuItem.Text = "E&xit ";
+            // 
+            // viewToolStripMenuItem
+            // 
+            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.trainersToolStripMenuItem,
+            this.membersToolStripMenuItem1,
+            this.membershipsToolStripMenuItem1,
+            this.billsToolStripMenuItem3});
+            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.viewToolStripMenuItem.Text = "View";
+            // 
+            // trainersToolStripMenuItem
+            // 
+            this.trainersToolStripMenuItem.Name = "trainersToolStripMenuItem";
+            this.trainersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.trainersToolStripMenuItem.Text = "Trainers";
+            // 
+            // membersToolStripMenuItem1
+            // 
+            this.membersToolStripMenuItem1.Name = "membersToolStripMenuItem1";
+            this.membersToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.membersToolStripMenuItem1.Text = "Members";
+            // 
+            // membershipsToolStripMenuItem1
+            // 
+            this.membershipsToolStripMenuItem1.Name = "membershipsToolStripMenuItem1";
+            this.membershipsToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.membershipsToolStripMenuItem1.Text = "Memberships";
+            // 
+            // billsToolStripMenuItem3
+            // 
+            this.billsToolStripMenuItem3.Name = "billsToolStripMenuItem3";
+            this.billsToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.billsToolStripMenuItem3.Text = "Bills";
+            this.billsToolStripMenuItem3.Click += new System.EventHandler(this.billsToolStripMenuItem3_Click);
             // 
             // Bills
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Bills";
             this.Text = "Bills";
             ((System.ComponentModel.ISupportInitialize)(this.BillsList)).EndInit();
@@ -521,10 +563,15 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem membersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem membershipsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem billsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem billsToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem billsToolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem paymentsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem trainerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem memberToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem membershipToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem billToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem existToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem trainersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem membersToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem membershipsToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem billsToolStripMenuItem3;
     }
 }
