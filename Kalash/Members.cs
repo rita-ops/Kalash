@@ -92,6 +92,7 @@ namespace Kalash
                     ShowMembers();
                     MessageBox.Show("Member added");
                     Reset();
+                    //hi
                 }
             }
             catch (Exception Ex)
