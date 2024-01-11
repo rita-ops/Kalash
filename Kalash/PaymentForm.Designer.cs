@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PaymentForm));
             this.panel3 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
@@ -55,22 +54,11 @@
             this.MemberLbl = new System.Windows.Forms.Label();
             this.TrainersLbl = new System.Windows.Forms.Label();
             this.Logout = new System.Windows.Forms.Label();
-            this.kalashDBDataSet6 = new Kalash.KalashDBDataSet6();
-            this.paymentsTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.paymentsTableTableAdapter = new Kalash.KalashDBDataSet6TableAdapters.PaymentsTableTableAdapter();
-            this.paymentIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clientNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.currencyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kalashDBDataSet6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.paymentsTableBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
@@ -169,16 +157,7 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.paymentIdDataGridViewTextBoxColumn,
-            this.clientNameDataGridViewTextBoxColumn,
-            this.dateDataGridViewTextBoxColumn,
-            this.phoneDataGridViewTextBoxColumn,
-            this.amountDataGridViewTextBoxColumn,
-            this.currencyDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.paymentsTableBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(67, 153);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1072, 497);
@@ -364,63 +343,6 @@
             this.Logout.Text = "Logout";
             this.Logout.Click += new System.EventHandler(this.Logout_Click);
             // 
-            // kalashDBDataSet6
-            // 
-            this.kalashDBDataSet6.DataSetName = "KalashDBDataSet6";
-            this.kalashDBDataSet6.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // paymentsTableBindingSource
-            // 
-            this.paymentsTableBindingSource.DataMember = "PaymentsTable";
-            this.paymentsTableBindingSource.DataSource = this.kalashDBDataSet6;
-            // 
-            // paymentsTableTableAdapter
-            // 
-            this.paymentsTableTableAdapter.ClearBeforeFill = true;
-            // 
-            // paymentIdDataGridViewTextBoxColumn
-            // 
-            this.paymentIdDataGridViewTextBoxColumn.DataPropertyName = "PaymentId";
-            this.paymentIdDataGridViewTextBoxColumn.HeaderText = "PaymentId";
-            this.paymentIdDataGridViewTextBoxColumn.Name = "paymentIdDataGridViewTextBoxColumn";
-            this.paymentIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.paymentIdDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // clientNameDataGridViewTextBoxColumn
-            // 
-            this.clientNameDataGridViewTextBoxColumn.DataPropertyName = "ClientName";
-            this.clientNameDataGridViewTextBoxColumn.HeaderText = "ClientName";
-            this.clientNameDataGridViewTextBoxColumn.Name = "clientNameDataGridViewTextBoxColumn";
-            this.clientNameDataGridViewTextBoxColumn.Width = 210;
-            // 
-            // dateDataGridViewTextBoxColumn
-            // 
-            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
-            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
-            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
-            this.dateDataGridViewTextBoxColumn.Width = 210;
-            // 
-            // phoneDataGridViewTextBoxColumn
-            // 
-            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "Phone";
-            this.phoneDataGridViewTextBoxColumn.HeaderText = "Phone";
-            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
-            this.phoneDataGridViewTextBoxColumn.Width = 210;
-            // 
-            // amountDataGridViewTextBoxColumn
-            // 
-            this.amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
-            this.amountDataGridViewTextBoxColumn.HeaderText = "Amount";
-            this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
-            this.amountDataGridViewTextBoxColumn.Width = 210;
-            // 
-            // currencyDataGridViewTextBoxColumn
-            // 
-            this.currencyDataGridViewTextBoxColumn.DataPropertyName = "Currency";
-            this.currencyDataGridViewTextBoxColumn.HeaderText = "Currency";
-            this.currencyDataGridViewTextBoxColumn.Name = "currencyDataGridViewTextBoxColumn";
-            this.currencyDataGridViewTextBoxColumn.Width = 210;
-            // 
             // PaymentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -431,7 +353,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PaymentForm";
             this.Text = "PaymentForm";
-            this.Load += new System.EventHandler(this.PaymentForm_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -440,8 +361,6 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kalashDBDataSet6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.paymentsTableBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -473,14 +392,5 @@
         private Guna.UI2.WinForms.Guna2DateTimePicker StartDate;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private KalashDBDataSet6 kalashDBDataSet6;
-        private System.Windows.Forms.BindingSource paymentsTableBindingSource;
-        private KalashDBDataSet6TableAdapters.PaymentsTableTableAdapter paymentsTableTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn paymentIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clientNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn currencyDataGridViewTextBoxColumn;
     }
 }

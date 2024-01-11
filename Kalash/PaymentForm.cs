@@ -118,39 +118,39 @@ namespace Kalash
 
         private void LoadDataAndCalculateTotals()
         {
-        //    decimal SumD = 0;
-        //    decimal SumLBP = 0;
+            decimal SumD = 0;
+            decimal SumLBP = 0;
 
-        //    foreach (DataGridViewRow row in dataGridView1.Rows)
-        //    {
-        //        // Replace "PaymentAmount" and "CurrencyType" with the actual column names in your DataGridView
-        //        DataGridViewCell paymentCell = row.Cells["Amount"];
-        //        DataGridViewCell currencyCell = row.Cells["Currency"];
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                // Replace "PaymentAmount" and "CurrencyType" with the actual column names in your DataGridView
+                DataGridViewCell paymentCell = row.Cells["Amount"];
+                DataGridViewCell currencyCell = row.Cells["Currency"];
 
-        //        // Check if the cells are not null and contain valid values
-        //        if (paymentCell.Value != null && currencyCell.Value != null)
-        //        {
-        //            decimal Amount;
-        //            if (decimal.TryParse(paymentCell.Value.ToString(), out Amount))
-        //            {
-        //                string Currency = currencyCell.Value.ToString();
+                // Check if the cells are not null and contain valid values
+                if (paymentCell.Value != null && currencyCell.Value != null)
+                {
+                    decimal Amount;
+                    if (decimal.TryParse(paymentCell.Value.ToString(), out Amount))
+                    {
+                        string Currency = currencyCell.Value.ToString();
 
-        //                // Convert to dollars and Lebanese pounds based on exchange rates
-        //                if (Currency == "$")
-        //                {
-        //                    SumD += Amount;
-        //                }
-        //                else if (Currency == "LBP")
-        //                {
-        //                    SumLBP += Amount;
-        //                }
-        //            }
-        //        }
-        //    }
+                        // Convert to dollars and Lebanese pounds based on exchange rates
+                        if (Currency == "$")
+                        {
+                            SumD += Amount;
+                        }
+                        else if (Currency == "LBP")
+                        {
+                            SumLBP += Amount;
+                        }
+                    }
+                }
+            }
 
-        //    // Display or use the calculated totals
-        //    LblTotalDol.Text = SumD.ToString();
-        //    LblTotalLBP.Text = SumLBP.ToString();
+            // Display or use the calculated totals
+            LblTotalDol.Text = SumD.ToString();
+            LblTotalLBP.Text = SumLBP.ToString();
         }
 
         private void FilterDataByDateRange(DateTime startDate, DateTime endDate)
@@ -211,13 +211,6 @@ namespace Kalash
             reportpay.Text = LblTotalLBP.Text;
             reportpay.Show();
           
-        }
-
-        private void PaymentForm_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'kalashDBDataSet6.PaymentsTable' table. You can move, or remove it, as needed.
-            this.paymentsTableTableAdapter.Fill(this.kalashDBDataSet6.PaymentsTable);
-
         }
     }
 }
