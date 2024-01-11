@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Kalash"
+    "\\Kalash",
+    "\\Kalash\\RDLCPrinter",
+    "\\Kalash\\RDLCPrinter\\MrDSoft.RDLC"
   ],
   "SelectedNode": "\\Kalash\\Bills.cs",
   "PreviewInSolutionExplorer": false

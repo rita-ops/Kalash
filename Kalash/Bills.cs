@@ -13,6 +13,7 @@ namespace Kalash
     public partial class Bills : Form
     {
         Functions Con;
+        private DataGridView dataGridView;
 
         public Bills()
         {
@@ -42,9 +43,7 @@ namespace Kalash
         {
             Member.Text = "";
             Amount.Text = "";
-        }
-
-    
+        } 
 
         private void Save_Click(object sender, EventArgs e)
         {
@@ -75,8 +74,7 @@ namespace Kalash
                 MessageBox.Show(Ex.Message);
             }
         }
-
-        
+      
         private void Edit_Click(object sender, EventArgs e)
         {
              try
@@ -161,58 +159,11 @@ namespace Kalash
             this.Hide();
         }
 
-        private void SearchTxtBox_TextChanged(object sender, EventArgs e)
+        private void btnallbills_Click(object sender, EventArgs e)
         {
-            string searchTerm = SearchTxtBox.Text.ToLower();
-            BindingSource bs = new BindingSource();
-            bs.DataSource = BillsList.DataSource;
-            bs.Filter = string.Format("Member LIKE '%{0}%'" , searchTerm );
-            BillsList.DataSource = bs;
-
+            // Open the SecondForm and pass a reference to the DataGridView
+            SecondForm secondForm = new SecondForm(dataGridView);
+            secondForm.Show();
         }
-
-        private void Print_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void billsToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            Bills BillsList = new Bills();
-            BillsList.Show();
-            MemberName.Visible = false;
-            Member.Visible = false;
-            //this.Hide();
-        }
-
-        private void Search_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        //private void billsToolStripMenuItem2_Click(object sender, EventArgs e)
-        //{
-        //    //Bills BillsList = new Bills();
-        //    //BillsList.Show();
-        //    isBillsListOnly = !isBillsListOnly;
-        //    // Get data from the original DataGridView (dataGridView1)
-        //    List<DataGridViewRow> rowsToCopy = new List<DataGridViewRow>();
-
-        //    foreach (DataGridViewRow row in BillsList.Rows)
-        //    {
-        //        if (!row.IsNewRow) // Exclude the new row if present
-        //        {
-        //            rowsToCopy.Add(row);
-        //        }
-        //    }
-
-        //    // Open the CopyForm and pass the data
-        //    CopyForm copyForm = new CopyForm(rowsToCopy);
-        //    copyForm.Show();
-
-        //}
-
-
     }
-
 }
