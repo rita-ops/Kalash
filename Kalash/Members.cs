@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
 namespace Kalash
@@ -15,6 +17,7 @@ namespace Kalash
         Functions Con;
         // this.MenuStrip = MenuStrip1;
         private DataGridView dataGridView;
+        private DataGridView dataGridView1;
 
         public Members()
         {
@@ -25,9 +28,7 @@ namespace Kalash
             GetMemberships();
             MembersList.Columns[0].Visible = false;
             //MembersList.Columns[11].Visible = false;
-
         }
-
 
         private void ShowMembers()
         {
@@ -134,34 +135,6 @@ namespace Kalash
                 MessageBox.Show(Ex.Message);
             }
         }
-
-        private void Delete_Click(object sender, EventArgs e)
-        {
-            //if (MembersList.SelectedRows.Count > 0)
-            //{
-            //    DataGridViewRow selectedRow = MembersList.SelectedRows[0];
-            //    int rowIndex = selectedRow.Index;
-            //    Reset();
-
-            //    // Assuming your DataGridView is bound to a DataTable
-            //    DataTable dataTable = (DataTable)MembersList.DataSource;
-            //    Reset();
-
-            //    // Remove the row from the DataTable
-            //    dataTable.Rows.RemoveAt(rowIndex);
-            //    Reset();
-
-            //    // Optionally, refresh the DataGridView to reflect the changes
-            //    MembersList.Refresh();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Please select a row to delete.", "No Row Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //}
-            int Key = int.Parse(MembersList.CurrentRow.Cells[0].Value.ToString());
-           // Key = dataGridView.CurrentCell.RowIndex;
-            dataGridView.Rows.RemoveAt(Key);
-        }
        
         private void TrainersLbl_Click(object sender, EventArgs e)
         {
@@ -193,40 +166,20 @@ namespace Kalash
             this.Hide();
         }
 
-        private void existToolStripMenuItem_Click(object sender, EventArgs e)
+        private void PaymentLbl_Click(object sender, EventArgs e)
         {
-            Application.Exit();
-        }
-        
-
-        private void InitializeMenu()
-        {
-            MenuStrip menuStrip = new MenuStrip();
-            ToolStripMenuItem viewMenu = new ToolStripMenuItem("View");
-            ToolStripMenuItem showGridViewItem = new ToolStripMenuItem("Show GridView on Second Form");
-            showGridViewItem.Click += ShowGridViewItem_Click;
-
-            viewMenu.DropDownItems.Add(showGridViewItem);
-            menuStrip.Items.Add(viewMenu);
-
-            this.Controls.Add(menuStrip);
-            this.MainMenuStrip = menuStrip;
-        }
-
-        private void ShowGridViewItem_Click(object sender, EventArgs e)
-        {
-            // Open the SecondForm and pass a reference to the DataGridView
-            SecondForm secondForm = new SecondForm(dataGridView);
-            secondForm.Show();
-        }
+            Payments Obj = new Payments();
+            Obj.Show();
+            this.Hide();
+        }     
 
         private void MembersList_SelectionChanged(object sender, EventArgs e)
         {
            
             DataGridView dtg = new DataGridView();
             dtg = MembersList;
-            MemberFName.Text = MembersList.CurrentRow.Cells[1].Value.ToString();
-            MemberLName.Text = MembersList.CurrentRow.Cells[1].Value.ToString();
+            //MemberFName.Text = MembersList.CurrentRow.Cells[1].Value.ToString();
+            //MemberLName.Text = MembersList.CurrentRow.Cells[1].Value.ToString();
             string[] Members = MembersList.CurrentRow.Cells[1].Value.ToString().Split(' ');
             MemberFName.Text = Members[0];
             MemberLName.Text = Members[1];
@@ -238,8 +191,18 @@ namespace Kalash
             BloodType.Text = MembersList.CurrentRow.Cells[7].Value.ToString();
             Gender.Text = MembersList.CurrentRow.Cells[8].Value.ToString();
             Trainer.Text = MembersList.CurrentRow.Cells[9].Value.ToString();
+        }
 
-        }   
+        private void Logout_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
+
+        private void paymentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PaymentForm paymentForm = new PaymentForm(dataGridView1);
+            paymentForm.Show();
+        }
     }
 
 }
