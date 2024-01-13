@@ -15,7 +15,6 @@ namespace Kalash
     {
         Functions Con;
         private DataTable originalDataTable;
-
         public PaymentForm(DataGridView dataGridView1)
         {
             InitializeComponent();
@@ -75,6 +74,7 @@ namespace Kalash
 
         private void SearchTxtBox_TextChanged(object sender, EventArgs e)
         {
+            
             string searchTerm = SearchTxtBox.Text.Trim();
             BindingSource bs = new BindingSource();
             bs.DataSource = dataGridView1.DataSource;
@@ -86,30 +86,24 @@ namespace Kalash
 
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                // Replace "PaymentAmount" and "CurrencyType" with the actual column names in your DataGridView
-                DataGridViewCell paymentCell = row.Cells["Amount"];
-                DataGridViewCell currencyCell = row.Cells["Currency"];
+                // Assuming your amount column is at index 1 and currency column is at index 2
+                decimal amount = Convert.ToDecimal(row.Cells[4].Value);
 
-                // Check if the cells are not null and contain valid values
-                if (paymentCell.Value != null && currencyCell.Value != null)
-                {
-                    decimal Amount;
-                    if (decimal.TryParse(paymentCell.Value.ToString(), out Amount))
-                    {
-                        string Currency = currencyCell.Value.ToString();
+                // You can use the currency information if needed
+                string currency = Convert.ToString(row.Cells[5].Value);
 
+               
                         // Convert to dollars and Lebanese pounds based on exchange rates
-                        if (Currency == "$")
+                        if (currency == "$")
                         {
-                            SumD += Amount;
+                            SumD += amount;
                         }
-                        else if (Currency == "LBP")
+                        else if (currency == "LBP")
                         {
-                            SumLBP += Amount;
+                            SumLBP += amount;
                         }
-                    }
+                    
                 }
-            }
 
             // Display or use the calculated totals
             LblTotalDol.Text = SumD.ToString();
@@ -123,29 +117,23 @@ namespace Kalash
 
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                // Replace "PaymentAmount" and "CurrencyType" with the actual column names in your DataGridView
-                DataGridViewCell paymentCell = row.Cells["Amount"];
-                DataGridViewCell currencyCell = row.Cells["Currency"];
+                // Assuming your amount column is at index 1 and currency column is at index 2
+                decimal amount = Convert.ToDecimal(row.Cells[4].Value);
 
-                // Check if the cells are not null and contain valid values
-                if (paymentCell.Value != null && currencyCell.Value != null)
+                // You can use the currency information if needed
+                string currency = Convert.ToString(row.Cells[5].Value);
+
+
+                // Convert to dollars and Lebanese pounds based on exchange rates
+                if (currency == "$")
                 {
-                    decimal Amount;
-                    if (decimal.TryParse(paymentCell.Value.ToString(), out Amount))
-                    {
-                        string Currency = currencyCell.Value.ToString();
-
-                        // Convert to dollars and Lebanese pounds based on exchange rates
-                        if (Currency == "$")
-                        {
-                            SumD += Amount;
-                        }
-                        else if (Currency == "LBP")
-                        {
-                            SumLBP += Amount;
-                        }
-                    }
+                    SumD += amount;
                 }
+                else if (currency == "LBP")
+                {
+                    SumLBP += amount;
+                }
+
             }
 
             // Display or use the calculated totals
@@ -211,6 +199,13 @@ namespace Kalash
             reportpay.Text = LblTotalLBP.Text;
             reportpay.Show();
           
+        }
+
+        private void PaymentForm_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'kalashDBDataSet6.PaymentsTable' table. You can move, or remove it, as needed.
+            this.paymentsTableTableAdapter.Fill(this.kalashDBDataSet6.PaymentsTable);
+
         }
     }
 }

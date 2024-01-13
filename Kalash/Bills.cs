@@ -21,13 +21,16 @@ namespace Kalash
             Con = new Functions();
             ShowBills();
             GetMembers();
-            BillsList.Columns[4].Visible = false;
+            dataGridView1.Columns[4].Visible = false;
+            dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
         }
 
         private void ShowBills()
         {
             string Query = "SELECT CONCAT(MembersTable.MemberFName ,' ', MembersTable.MemberLName ,' ') AS Member , BillsTable.Date, BillsTable.Amount , BillsTable.Currency, BillsTable.BillId FROM MembersTable INNER JOIN BillsTable ON MembersTable.MembersID = BillsTable.MembersID";
-            BillsList.DataSource = Con.GetData(Query);
+            dataGridView1.DataSource = Con.GetData(Query);
+            dataGridView1.ClearSelection();
+
         }
 
         private void GetMembers()
@@ -36,13 +39,13 @@ namespace Kalash
             Member.DisplayMember = Con.GetData(Query).Columns["Member"].ToString();
             Member.ValueMember = Con.GetData(Query).Columns["MembersID"].ToString();
             Member.DataSource = Con.GetData(Query);
-    
         }
 
         private void Reset()
         {
             Member.Text = "";
             Amount.Text = "";
+            Currency.Text = "";
         } 
 
         private void Save_Click(object sender, EventArgs e)
@@ -85,7 +88,7 @@ namespace Kalash
                 }
                 else
                 {
-                    int Key = int.Parse(BillsList.SelectedRows[0].Cells[4].Value.ToString());
+                    int Key = int.Parse(dataGridView1.SelectedRows[0].Cells[4].Value.ToString());
                     //int Agent = Login.UserId; // Receptionist user
                     string Memship = Member.SelectedValue.ToString();
                     string BillDate = Date.Value.Date.ToString();
@@ -107,35 +110,27 @@ namespace Kalash
 
         private void Delete_Click(object sender, EventArgs e)
         {
-            if (BillsList.SelectedRows.Count > 0)
-            {
-                DataGridViewRow selectedRow = BillsList.SelectedRows[0];
-                int rowIndex = selectedRow.Index;
-                Reset();
+            //if (BillsList.SelectedRows.Count > 0)
+            //{
+            //    DataGridViewRow selectedRow = BillsList.SelectedRows[0];
+            //    int rowIndex = selectedRow.Index;
+            //    Reset();
 
-                // Assuming your DataGridView is bound to a DataTable
-                DataTable dataTable = (DataTable)BillsList.DataSource;
-                Reset();
+            //    // Assuming your DataGridView is bound to a DataTable
+            //    DataTable dataTable = (DataTable)BillsList.DataSource;
+            //    Reset();
 
-                // Remove the row from the DataTable
-                dataTable.Rows.RemoveAt(rowIndex);
-                Reset();
+            //    // Remove the row from the DataTable
+            //    dataTable.Rows.RemoveAt(rowIndex);
+            //    Reset();
 
-                // Optionally, refresh the DataGridView to reflect the changes
-                BillsList.Refresh();
-            }
-            else
-            {
-                MessageBox.Show("Please select a row to delete.", "No Row Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void BillsList_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            Member.Text = BillsList.SelectedCells[0].Value.ToString();
-            Date.Text = BillsList.SelectedCells[1].Value.ToString();
-            Amount.Text = BillsList.SelectedCells[2].Value.ToString();
-            Currency.Text = BillsList.SelectedCells[3].Value.ToString();
+            //    // Optionally, refresh the DataGridView to reflect the changes
+            //    BillsList.Refresh();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Please select a row to delete.", "No Row Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
         }
 
         private void TrainersLbl_Click(object sender, EventArgs e)
@@ -165,5 +160,18 @@ namespace Kalash
             SecondForm secondForm = new SecondForm(dataGridView);
             secondForm.Show();
         }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+                Member.Text = dataGridView1.SelectedCells[0].Value.ToString();
+                Date.Text = dataGridView1.SelectedCells[1].Value.ToString();
+                Amount.Text = dataGridView1.SelectedCells[2].Value.ToString();
+                Currency.Text = dataGridView1.SelectedCells[3].Value.ToString();
+            }
+        }
+
     }
 }

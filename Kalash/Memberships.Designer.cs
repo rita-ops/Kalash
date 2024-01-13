@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Memberships));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Delete = new System.Windows.Forms.Button();
             this.Edit = new System.Windows.Forms.Button();
             this.Save = new System.Windows.Forms.Button();
@@ -45,7 +43,13 @@
             this.TrainersLbl = new System.Windows.Forms.Label();
             this.Logout = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.MembershipsList = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.membershipIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.membershipTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.costDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.membershipsTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.kalashDBDataSet9 = new Kalash.KalashDBDataSet9();
             this.Description = new System.Windows.Forms.TextBox();
             this.Cost = new System.Windows.Forms.TextBox();
             this.MembershipType = new System.Windows.Forms.ComboBox();
@@ -54,17 +58,20 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.membershipsTableTableAdapter = new Kalash.KalashDBDataSet9TableAdapters.MembershipsTableTableAdapter();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MembershipsList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.membershipsTableBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kalashDBDataSet9)).BeginInit();
             this.SuspendLayout();
             // 
             // Delete
             // 
             this.Delete.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.Delete.Location = new System.Drawing.Point(938, 171);
+            this.Delete.Location = new System.Drawing.Point(938, 147);
             this.Delete.Name = "Delete";
             this.Delete.Size = new System.Drawing.Size(75, 33);
             this.Delete.TabIndex = 8;
@@ -75,7 +82,7 @@
             // Edit
             // 
             this.Edit.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.Edit.Location = new System.Drawing.Point(165, 171);
+            this.Edit.Location = new System.Drawing.Point(165, 147);
             this.Edit.Name = "Edit";
             this.Edit.Size = new System.Drawing.Size(75, 33);
             this.Edit.TabIndex = 8;
@@ -86,7 +93,7 @@
             // Save
             // 
             this.Save.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.Save.Location = new System.Drawing.Point(565, 171);
+            this.Save.Location = new System.Drawing.Point(563, 147);
             this.Save.Name = "Save";
             this.Save.Size = new System.Drawing.Size(75, 33);
             this.Save.TabIndex = 8;
@@ -196,7 +203,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.MembershipsList);
+            this.panel3.Controls.Add(this.dataGridView1);
             this.panel3.Controls.Add(this.Delete);
             this.panel3.Controls.Add(this.Edit);
             this.panel3.Controls.Add(this.Save);
@@ -213,59 +220,67 @@
             this.panel3.Size = new System.Drawing.Size(1213, 751);
             this.panel3.TabIndex = 10;
             // 
-            // MembershipsList
+            // dataGridView1
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.MembershipsList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.MembershipsList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Raised;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MembershipsList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.MembershipsList.ColumnHeadersHeight = 50;
-            this.MembershipsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.MembershipsList.DefaultCellStyle = dataGridViewCellStyle6;
-            this.MembershipsList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.MembershipsList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.MembershipsList.Location = new System.Drawing.Point(89, 287);
-            this.MembershipsList.Name = "MembershipsList";
-            this.MembershipsList.RowHeadersVisible = false;
-            this.MembershipsList.RowTemplate.Height = 40;
-            this.MembershipsList.Size = new System.Drawing.Size(970, 358);
-            this.MembershipsList.TabIndex = 11;
-            this.MembershipsList.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.MembershipsList.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.MembershipsList.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.MembershipsList.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.MembershipsList.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.MembershipsList.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.MembershipsList.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.MembershipsList.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.MembershipsList.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Raised;
-            this.MembershipsList.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MembershipsList.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.MembershipsList.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.MembershipsList.ThemeStyle.HeaderStyle.Height = 50;
-            this.MembershipsList.ThemeStyle.ReadOnly = false;
-            this.MembershipsList.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.MembershipsList.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.MembershipsList.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MembershipsList.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.MembershipsList.ThemeStyle.RowsStyle.Height = 40;
-            this.MembershipsList.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.MembershipsList.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.MembershipsList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MembershipsList_CellContentClick);
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.membershipIDDataGridViewTextBoxColumn,
+            this.membershipTypeDataGridViewTextBoxColumn,
+            this.descriptionDataGridViewTextBoxColumn,
+            this.costDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.membershipsTableBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(107, 241);
+            this.dataGridView1.MultiSelect = false;
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersWidth = 50;
+            this.dataGridView1.RowTemplate.Height = 20;
+            this.dataGridView1.Size = new System.Drawing.Size(942, 356);
+            this.dataGridView1.TabIndex = 9;
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            // 
+            // membershipIDDataGridViewTextBoxColumn
+            // 
+            this.membershipIDDataGridViewTextBoxColumn.DataPropertyName = "MembershipID";
+            this.membershipIDDataGridViewTextBoxColumn.HeaderText = "MembershipID";
+            this.membershipIDDataGridViewTextBoxColumn.Name = "membershipIDDataGridViewTextBoxColumn";
+            this.membershipIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // membershipTypeDataGridViewTextBoxColumn
+            // 
+            this.membershipTypeDataGridViewTextBoxColumn.DataPropertyName = "MembershipType";
+            this.membershipTypeDataGridViewTextBoxColumn.HeaderText = "MembershipType";
+            this.membershipTypeDataGridViewTextBoxColumn.Name = "membershipTypeDataGridViewTextBoxColumn";
+            this.membershipTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.membershipTypeDataGridViewTextBoxColumn.Width = 300;
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.descriptionDataGridViewTextBoxColumn.Width = 400;
+            // 
+            // costDataGridViewTextBoxColumn
+            // 
+            this.costDataGridViewTextBoxColumn.DataPropertyName = "Cost";
+            this.costDataGridViewTextBoxColumn.HeaderText = "Cost";
+            this.costDataGridViewTextBoxColumn.Name = "costDataGridViewTextBoxColumn";
+            this.costDataGridViewTextBoxColumn.ReadOnly = true;
+            this.costDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // membershipsTableBindingSource
+            // 
+            this.membershipsTableBindingSource.DataMember = "MembershipsTable";
+            this.membershipsTableBindingSource.DataSource = this.kalashDBDataSet9;
+            // 
+            // kalashDBDataSet9
+            // 
+            this.kalashDBDataSet9.DataSetName = "KalashDBDataSet9";
+            this.kalashDBDataSet9.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // Description
             // 
@@ -303,7 +318,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(541, 251);
+            this.label2.Location = new System.Drawing.Point(535, 209);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(127, 20);
             this.label2.TabIndex = 1;
@@ -346,6 +361,10 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Manage Memberships";
             // 
+            // membershipsTableTableAdapter
+            // 
+            this.membershipsTableTableAdapter.ClearBeforeFill = true;
+            // 
             // Memberships
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -355,6 +374,7 @@
             this.Controls.Add(this.panel3);
             this.Name = "Memberships";
             this.Text = "Memberships";
+            this.Load += new System.EventHandler(this.Memberships_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -362,7 +382,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MembershipsList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.membershipsTableBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kalashDBDataSet9)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -381,7 +403,6 @@
         private System.Windows.Forms.Label TrainersLbl;
         private System.Windows.Forms.Label Logout;
         private System.Windows.Forms.Panel panel3;
-        private Guna.UI2.WinForms.Guna2DataGridView MembershipsList;
         private System.Windows.Forms.TextBox Description;
         private System.Windows.Forms.TextBox Cost;
         private System.Windows.Forms.ComboBox MembershipType;
@@ -390,5 +411,13 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private KalashDBDataSet9 kalashDBDataSet9;
+        private System.Windows.Forms.BindingSource membershipsTableBindingSource;
+        private KalashDBDataSet9TableAdapters.MembershipsTableTableAdapter membershipsTableTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn membershipIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn membershipTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn costDataGridViewTextBoxColumn;
     }
 }

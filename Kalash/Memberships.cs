@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,13 +19,14 @@ namespace Kalash
             InitializeComponent();
             Con = new Functions();
             ShowMemberships();
+            dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
         }
 
         private void ShowMemberships()
         {
-            string Query = "Select MembershipType, Description, Cost from MembershipsTable";
-            //string Query = "Select * from MembershipsTable";
-            MembershipsList.DataSource = Con.GetData(Query);
+           string Query = "Select MembershipID, MembershipType, Description, Cost from MembershipsTable";
+           dataGridView1.DataSource = Con.GetData(Query);
+           dataGridView1.ClearSelection();
         }
 
         private void Reset()
@@ -61,25 +63,25 @@ namespace Kalash
             }
         }
 
-        int Key = 0;
         private void Edit_Click(object sender, EventArgs e)
         {
             try
             {
-                if (MembershipType.SelectedIndex == -1 || Description.Text == "" || Cost.Text == "")
+                if (MembershipType.Text == "" || Description.Text == "" || Cost.Text == "")
                 {
-                    MessageBox.Show("Please fill required fields!!");
+                    MessageBox.Show("Please enter the required fields!!");
                 }
                 else
                 {
+                    int Key = int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
                     string Memshiptype = MembershipType.Text;
                     string Desc = Description.Text;
-                    string Cos = Cost.Text;
-                    string Query = "Update MembershipsTable set MembershipType = '{0}', Description = '{1}', Cost = '{2}' where MembershipID = {3}";
+                    string Cos = Cost.Text;   
+                    string Query = "Update MembershipsTable set MembershipType = '{0}', Description = '{1}', Cost = '{2}' Where MembershipID = {3}";
                     Query = string.Format(Query, Memshiptype, Desc, Cos, Key);
                     Con.setData(Query);
                     ShowMemberships();
-                    MessageBox.Show("Membership Updated");
+                    MessageBox.Show("Membership updated");
                     Reset();
                 }
             }
@@ -91,43 +93,24 @@ namespace Kalash
 
         private void Delete_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (Key == 0)
-                {
-                    MessageBox.Show("Please select a membership!!");
-                }
-                else
-                {
-                    string Query = "delete from MembershipsTable where MembershipID  ={0}";
-                    Query = string.Format(Query, Key);
-                    Con.setData(Query);
-                    ShowMemberships();
-                    MessageBox.Show("Membership deleted");
-                    Reset();
-                }
-            }
-            catch (Exception Ex)
-            {
-                MessageBox.Show(Ex.Message);
-            }
+            //if (dataGridView1.SelectedRows.Count > 0)
+            //{
+            //    DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+            //    int membershipID = Convert.ToInt32(selectedRow.Cells["MembershipID"].Value);
+
+            //    // Delete from the DataTable
+            //    DataRow rowToDelete = dataTable.Rows.Find(membershipID);
+            //    if (rowToDelete != null)
+            //    {
+            //        dataTable.Rows.Remove(rowToDelete);
+            //    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Please select a row to delete.");
+            //}
         }
 
-        private void MembershipsList_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            MembershipType.Text = MembershipsList.SelectedRows[0].Cells[1].Value.ToString();
-            Description.Text = MembershipsList.SelectedRows[0].Cells[2].Value.ToString();
-            Cost.Text = MembershipsList.SelectedRows[0].Cells[3].Value.ToString();
-            
-            if (MembershipType.Text == "")
-            {
-                Key = 0;
-            }
-            else
-            {
-                Key = Convert.ToInt32(MembershipsList.SelectedRows[0].Cells[0].Value.ToString());
-            }
-        }
 
         private void TrainersLbl_Click(object sender, EventArgs e)
         {
@@ -148,6 +131,25 @@ namespace Kalash
             Bills Obj = new Bills();
             Obj.Show();
             this.Hide();
+        }
+
+        private void Memberships_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'kalashDBDataSet9.MembershipsTable' table. You can move, or remove it, as needed.
+            this.membershipsTableTableAdapter.Fill(this.kalashDBDataSet9.MembershipsTable);
+
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+
+                MembershipType.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                Description.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                Cost.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            }
         }
     }
 }
