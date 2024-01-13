@@ -119,23 +119,11 @@ namespace Kalash
             this.Hide();
         }
 
-        private void label13_Click(object sender, EventArgs e)
-        {
-            Bills Obj = new Bills();
-            Obj.Show();
-            this.Hide();
-        }
-
         private void BillsLbl_Click(object sender, EventArgs e)
         {
             Bills Obj = new Bills();
             Obj.Show();
             this.Hide();
-        }
-
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
 
         private void btnviewpayments_Click(object sender, EventArgs e)

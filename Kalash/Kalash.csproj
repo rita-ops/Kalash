@@ -119,6 +119,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>KalashDBDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="KalashDBDataSet10.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KalashDBDataSet10.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="KalashDBDataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KalashDBDataSet11.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="KalashDBDataSet12.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KalashDBDataSet12.xsd</DependentUpon>
+    </Compile>
     <Compile Include="KalashDBDataSet21.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -138,6 +153,29 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>KalashDBDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="KalashDBDataSet61.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KalashDBDataSet61.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="KalashDBDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KalashDBDataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="KalashDBDataSet81.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KalashDBDataSet81.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="KalashDBDataSet9.cs">
+      <DependentUpon>KalashDBDataSet9.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="KalashDBDataSet9.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KalashDBDataSet9.xsd</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -259,6 +297,39 @@
     <None Include="KalashDBDataSet1.xss">
       <DependentUpon>KalashDBDataSet1.xsd</DependentUpon>
     </None>
+    <None Include="KalashDBDataSet10.xsc">
+      <DependentUpon>KalashDBDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="KalashDBDataSet10.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KalashDBDataSet10.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="KalashDBDataSet10.xss">
+      <DependentUpon>KalashDBDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="KalashDBDataSet11.xsc">
+      <DependentUpon>KalashDBDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="KalashDBDataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KalashDBDataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="KalashDBDataSet11.xss">
+      <DependentUpon>KalashDBDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="KalashDBDataSet12.xsc">
+      <DependentUpon>KalashDBDataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="KalashDBDataSet12.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KalashDBDataSet12.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="KalashDBDataSet12.xss">
+      <DependentUpon>KalashDBDataSet12.xsd</DependentUpon>
+    </None>
     <None Include="KalashDBDataSet21.xsc">
       <DependentUpon>KalashDBDataSet21.xsd</DependentUpon>
     </None>
@@ -302,6 +373,50 @@
     </None>
     <None Include="KalashDBDataSet5.xss">
       <DependentUpon>KalashDBDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="KalashDBDataSet61.xsc">
+      <DependentUpon>KalashDBDataSet61.xsd</DependentUpon>
+    </None>
+    <None Include="KalashDBDataSet61.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KalashDBDataSet61.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="KalashDBDataSet61.xss">
+      <DependentUpon>KalashDBDataSet61.xsd</DependentUpon>
+    </None>
+    <None Include="KalashDBDataSet7.xsc">
+      <DependentUpon>KalashDBDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="KalashDBDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KalashDBDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="KalashDBDataSet7.xss">
+      <DependentUpon>KalashDBDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="KalashDBDataSet81.xsc">
+      <DependentUpon>KalashDBDataSet81.xsd</DependentUpon>
+    </None>
+    <None Include="KalashDBDataSet81.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KalashDBDataSet81.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="KalashDBDataSet81.xss">
+      <DependentUpon>KalashDBDataSet81.xsd</DependentUpon>
+    </None>
+    <None Include="KalashDBDataSet9.xsc">
+      <DependentUpon>KalashDBDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="KalashDBDataSet9.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KalashDBDataSet9.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="KalashDBDataSet9.xss">
+      <DependentUpon>KalashDBDataSet9.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Bills.datasource" />

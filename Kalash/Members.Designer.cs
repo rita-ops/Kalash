@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Members));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Logout = new System.Windows.Forms.Label();
             this.Edit = new System.Windows.Forms.Button();
             this.Save = new System.Windows.Forms.Button();
@@ -59,7 +58,20 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.MembersList = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.membersIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.memberFNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.memberLNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dOBDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.joinDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.membershipIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bloodTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.genderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.trainersIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.membersTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.kalashDBDataSet8 = new Kalash.KalashDBDataSet8();
             this.DOB = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.JoinDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.Timing = new System.Windows.Forms.ComboBox();
@@ -67,10 +79,13 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.membersTableTableAdapter = new Kalash.KalashDBDataSet8TableAdapters.MembersTableTableAdapter();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MembersList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.membersTableBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kalashDBDataSet8)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -347,7 +362,7 @@
             // 
             this.panel3.AutoScroll = true;
             this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.MembersList);
+            this.panel3.Controls.Add(this.dataGridView2);
             this.panel3.Controls.Add(this.DOB);
             this.panel3.Controls.Add(this.JoinDate);
             this.panel3.Controls.Add(this.Edit);
@@ -377,64 +392,139 @@
             this.panel3.Size = new System.Drawing.Size(1213, 744);
             this.panel3.TabIndex = 8;
             // 
-            // MembersList
+            // dataGridView2
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.MembersList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.MembersList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Raised;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MembersList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.MembersList.ColumnHeadersHeight = 50;
-            this.MembersList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.MembersList.DefaultCellStyle = dataGridViewCellStyle3;
-            this.MembersList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.MembersList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.MembersList.Location = new System.Drawing.Point(41, 274);
-            this.MembersList.MultiSelect = false;
-            this.MembersList.Name = "MembersList";
-            this.MembersList.ReadOnly = true;
-            this.MembersList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            this.MembersList.RowHeadersVisible = false;
-            this.MembersList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.MembersList.RowTemplate.Height = 40;
-            this.MembersList.RowTemplate.ReadOnly = true;
-            this.MembersList.Size = new System.Drawing.Size(1134, 461);
-            this.MembersList.TabIndex = 13;
-            this.MembersList.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.MembersList.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.MembersList.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.MembersList.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.MembersList.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.MembersList.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.MembersList.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.MembersList.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.MembersList.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Raised;
-            this.MembersList.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MembersList.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.MembersList.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.MembersList.ThemeStyle.HeaderStyle.Height = 50;
-            this.MembersList.ThemeStyle.ReadOnly = true;
-            this.MembersList.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.MembersList.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.MembersList.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MembersList.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.MembersList.ThemeStyle.RowsStyle.Height = 40;
-            this.MembersList.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.MembersList.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.MembersList.SelectionChanged += new System.EventHandler(this.MembersList_SelectionChanged);
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AutoGenerateColumns = false;
+            this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.membersIDDataGridViewTextBoxColumn,
+            this.memberFNameDataGridViewTextBoxColumn,
+            this.memberLNameDataGridViewTextBoxColumn,
+            this.dOBDataGridViewTextBoxColumn,
+            this.joinDateDataGridViewTextBoxColumn,
+            this.membershipIDDataGridViewTextBoxColumn,
+            this.phoneDataGridViewTextBoxColumn,
+            this.timingDataGridViewTextBoxColumn,
+            this.bloodTypeDataGridViewTextBoxColumn,
+            this.genderDataGridViewTextBoxColumn,
+            this.trainersIDDataGridViewTextBoxColumn});
+            this.dataGridView2.DataSource = this.membersTableBindingSource;
+            this.dataGridView2.Location = new System.Drawing.Point(41, 274);
+            this.dataGridView2.MultiSelect = false;
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.NullValue = null;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView2.RowHeadersWidth = 50;
+            this.dataGridView2.RowTemplate.Height = 20;
+            this.dataGridView2.RowTemplate.ReadOnly = true;
+            this.dataGridView2.Size = new System.Drawing.Size(1128, 407);
+            this.dataGridView2.TabIndex = 12;
+            this.dataGridView2.SelectionChanged += new System.EventHandler(this.dataGridView2_SelectionChanged);
+            // 
+            // membersIDDataGridViewTextBoxColumn
+            // 
+            this.membersIDDataGridViewTextBoxColumn.DataPropertyName = "MembersID";
+            this.membersIDDataGridViewTextBoxColumn.HeaderText = "MembersID";
+            this.membersIDDataGridViewTextBoxColumn.Name = "membersIDDataGridViewTextBoxColumn";
+            this.membersIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.membersIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // memberFNameDataGridViewTextBoxColumn
+            // 
+            this.memberFNameDataGridViewTextBoxColumn.DataPropertyName = "MemberFName";
+            this.memberFNameDataGridViewTextBoxColumn.HeaderText = "First Name";
+            this.memberFNameDataGridViewTextBoxColumn.Name = "memberFNameDataGridViewTextBoxColumn";
+            this.memberFNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.memberFNameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // memberLNameDataGridViewTextBoxColumn
+            // 
+            this.memberLNameDataGridViewTextBoxColumn.DataPropertyName = "MemberLName";
+            this.memberLNameDataGridViewTextBoxColumn.HeaderText = "Last Name";
+            this.memberLNameDataGridViewTextBoxColumn.Name = "memberLNameDataGridViewTextBoxColumn";
+            this.memberLNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.memberLNameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // dOBDataGridViewTextBoxColumn
+            // 
+            this.dOBDataGridViewTextBoxColumn.DataPropertyName = "DOB";
+            this.dOBDataGridViewTextBoxColumn.HeaderText = "DOB";
+            this.dOBDataGridViewTextBoxColumn.Name = "dOBDataGridViewTextBoxColumn";
+            this.dOBDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // joinDateDataGridViewTextBoxColumn
+            // 
+            this.joinDateDataGridViewTextBoxColumn.DataPropertyName = "JoinDate";
+            this.joinDateDataGridViewTextBoxColumn.HeaderText = "JoinDate";
+            this.joinDateDataGridViewTextBoxColumn.Name = "joinDateDataGridViewTextBoxColumn";
+            this.joinDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // membershipIDDataGridViewTextBoxColumn
+            // 
+            this.membershipIDDataGridViewTextBoxColumn.DataPropertyName = "MembershipID";
+            this.membershipIDDataGridViewTextBoxColumn.HeaderText = "Membership Type";
+            this.membershipIDDataGridViewTextBoxColumn.Name = "membershipIDDataGridViewTextBoxColumn";
+            this.membershipIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.membershipIDDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // phoneDataGridViewTextBoxColumn
+            // 
+            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "Phone";
+            this.phoneDataGridViewTextBoxColumn.HeaderText = "Phone";
+            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
+            this.phoneDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // timingDataGridViewTextBoxColumn
+            // 
+            this.timingDataGridViewTextBoxColumn.DataPropertyName = "Timing";
+            this.timingDataGridViewTextBoxColumn.HeaderText = "Timing";
+            this.timingDataGridViewTextBoxColumn.Name = "timingDataGridViewTextBoxColumn";
+            this.timingDataGridViewTextBoxColumn.ReadOnly = true;
+            this.timingDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // bloodTypeDataGridViewTextBoxColumn
+            // 
+            this.bloodTypeDataGridViewTextBoxColumn.DataPropertyName = "BloodType";
+            this.bloodTypeDataGridViewTextBoxColumn.HeaderText = "BloodType";
+            this.bloodTypeDataGridViewTextBoxColumn.Name = "bloodTypeDataGridViewTextBoxColumn";
+            this.bloodTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.bloodTypeDataGridViewTextBoxColumn.Width = 70;
+            // 
+            // genderDataGridViewTextBoxColumn
+            // 
+            this.genderDataGridViewTextBoxColumn.DataPropertyName = "Gender";
+            this.genderDataGridViewTextBoxColumn.HeaderText = "Gender";
+            this.genderDataGridViewTextBoxColumn.Name = "genderDataGridViewTextBoxColumn";
+            this.genderDataGridViewTextBoxColumn.ReadOnly = true;
+            this.genderDataGridViewTextBoxColumn.Width = 65;
+            // 
+            // trainersIDDataGridViewTextBoxColumn
+            // 
+            this.trainersIDDataGridViewTextBoxColumn.DataPropertyName = "TrainersID";
+            this.trainersIDDataGridViewTextBoxColumn.HeaderText = "Trainers";
+            this.trainersIDDataGridViewTextBoxColumn.Name = "trainersIDDataGridViewTextBoxColumn";
+            this.trainersIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.trainersIDDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // membersTableBindingSource
+            // 
+            this.membersTableBindingSource.DataMember = "MembersTable";
+            this.membersTableBindingSource.DataSource = this.kalashDBDataSet8;
+            // 
+            // kalashDBDataSet8
+            // 
+            this.kalashDBDataSet8.DataSetName = "KalashDBDataSet8";
+            this.kalashDBDataSet8.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // DOB
             // 
@@ -513,6 +603,10 @@
             this.panel1.Size = new System.Drawing.Size(163, 744);
             this.panel1.TabIndex = 7;
             // 
+            // membersTableTableAdapter
+            // 
+            this.membersTableTableAdapter.ClearBeforeFill = true;
+            // 
             // Members
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -524,12 +618,15 @@
             this.Name = "Members";
             this.Text = "Members";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Members_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MembersList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.membersTableBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kalashDBDataSet8)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -572,6 +669,20 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox Timing;
-        private Guna.UI2.WinForms.Guna2DataGridView MembersList;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private KalashDBDataSet8 kalashDBDataSet8;
+        private System.Windows.Forms.BindingSource membersTableBindingSource;
+        private KalashDBDataSet8TableAdapters.MembersTableTableAdapter membersTableTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn membersIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn memberFNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn memberLNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dOBDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn joinDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn membershipIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn timingDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bloodTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn genderDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn trainersIDDataGridViewTextBoxColumn;
     }
 }

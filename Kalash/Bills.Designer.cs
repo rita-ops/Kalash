@@ -28,18 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Bills));
             this.Date = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.BillsList = new Guna.UI2.WinForms.Guna2DataGridView();
             this.Delete = new System.Windows.Forms.Button();
             this.Edit = new System.Windows.Forms.Button();
             this.Save = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.DateBill = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnallbills = new System.Windows.Forms.Button();
             this.Amount = new System.Windows.Forms.TextBox();
             this.Currency = new System.Windows.Forms.ComboBox();
@@ -57,8 +54,8 @@
             this.TrainersLbl = new System.Windows.Forms.Label();
             this.Logout = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.BillsList)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -70,7 +67,7 @@
             this.Date.FillColor = System.Drawing.Color.DarkSlateGray;
             this.Date.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.Date.Location = new System.Drawing.Point(368, 82);
+            this.Date.Location = new System.Drawing.Point(41, 156);
             this.Date.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.Date.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.Date.Name = "Date";
@@ -78,64 +75,10 @@
             this.Date.TabIndex = 12;
             this.Date.Value = new System.DateTime(2023, 12, 9, 9, 56, 29, 7);
             // 
-            // BillsList
-            // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.BillsList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.BillsList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Raised;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.BillsList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.BillsList.ColumnHeadersHeight = 50;
-            this.BillsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.BillsList.DefaultCellStyle = dataGridViewCellStyle3;
-            this.BillsList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.BillsList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.BillsList.Location = new System.Drawing.Point(160, 241);
-            this.BillsList.Name = "BillsList";
-            this.BillsList.RowHeadersVisible = false;
-            this.BillsList.RowTemplate.Height = 40;
-            this.BillsList.Size = new System.Drawing.Size(970, 376);
-            this.BillsList.TabIndex = 11;
-            this.BillsList.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.BillsList.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.BillsList.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.BillsList.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.BillsList.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.BillsList.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.BillsList.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.BillsList.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.BillsList.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Raised;
-            this.BillsList.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BillsList.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.BillsList.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.BillsList.ThemeStyle.HeaderStyle.Height = 50;
-            this.BillsList.ThemeStyle.ReadOnly = false;
-            this.BillsList.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.BillsList.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.BillsList.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BillsList.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.BillsList.ThemeStyle.RowsStyle.Height = 40;
-            this.BillsList.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.BillsList.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.BillsList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.BillsList_CellContentClick);
-            // 
             // Delete
             // 
             this.Delete.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.Delete.Location = new System.Drawing.Point(937, 140);
+            this.Delete.Location = new System.Drawing.Point(82, 415);
             this.Delete.Name = "Delete";
             this.Delete.Size = new System.Drawing.Size(75, 33);
             this.Delete.TabIndex = 8;
@@ -146,7 +89,7 @@
             // Edit
             // 
             this.Edit.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.Edit.Location = new System.Drawing.Point(176, 140);
+            this.Edit.Location = new System.Drawing.Point(125, 364);
             this.Edit.Name = "Edit";
             this.Edit.Size = new System.Drawing.Size(75, 33);
             this.Edit.TabIndex = 8;
@@ -157,7 +100,7 @@
             // Save
             // 
             this.Save.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.Save.Location = new System.Drawing.Point(566, 140);
+            this.Save.Location = new System.Drawing.Point(41, 364);
             this.Save.Name = "Save";
             this.Save.Size = new System.Drawing.Size(75, 33);
             this.Save.TabIndex = 8;
@@ -170,7 +113,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(553, 198);
+            this.label2.Location = new System.Drawing.Point(525, 66);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 20);
             this.label2.TabIndex = 1;
@@ -179,7 +122,7 @@
             // DateBill
             // 
             this.DateBill.AutoSize = true;
-            this.DateBill.Location = new System.Drawing.Point(365, 66);
+            this.DateBill.Location = new System.Drawing.Point(38, 140);
             this.DateBill.Name = "DateBill";
             this.DateBill.Size = new System.Drawing.Size(30, 13);
             this.DateBill.TabIndex = 1;
@@ -188,12 +131,12 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.dataGridView1);
             this.panel3.Controls.Add(this.btnallbills);
             this.panel3.Controls.Add(this.Amount);
             this.panel3.Controls.Add(this.Currency);
             this.panel3.Controls.Add(this.Member);
             this.panel3.Controls.Add(this.Date);
-            this.panel3.Controls.Add(this.BillsList);
             this.panel3.Controls.Add(this.Delete);
             this.panel3.Controls.Add(this.Edit);
             this.panel3.Controls.Add(this.Save);
@@ -208,10 +151,20 @@
             this.panel3.Size = new System.Drawing.Size(1213, 748);
             this.panel3.TabIndex = 10;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(337, 89);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(443, 463);
+            this.dataGridView1.TabIndex = 16;
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            // 
             // btnallbills
             // 
             this.btnallbills.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.btnallbills.Location = new System.Drawing.Point(1072, 15);
+            this.btnallbills.Location = new System.Drawing.Point(924, 120);
             this.btnallbills.Name = "btnallbills";
             this.btnallbills.Size = new System.Drawing.Size(75, 33);
             this.btnallbills.TabIndex = 15;
@@ -222,7 +175,7 @@
             // Amount
             // 
             this.Amount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Amount.Location = new System.Drawing.Point(689, 82);
+            this.Amount.Location = new System.Drawing.Point(41, 231);
             this.Amount.Name = "Amount";
             this.Amount.Size = new System.Drawing.Size(159, 29);
             this.Amount.TabIndex = 14;
@@ -234,7 +187,7 @@
             this.Currency.Items.AddRange(new object[] {
             "LBP",
             "$"});
-            this.Currency.Location = new System.Drawing.Point(988, 82);
+            this.Currency.Location = new System.Drawing.Point(41, 305);
             this.Currency.Name = "Currency";
             this.Currency.Size = new System.Drawing.Size(159, 29);
             this.Currency.TabIndex = 13;
@@ -251,7 +204,7 @@
             // Currencies
             // 
             this.Currencies.AutoSize = true;
-            this.Currencies.Location = new System.Drawing.Point(985, 66);
+            this.Currencies.Location = new System.Drawing.Point(38, 289);
             this.Currencies.Name = "Currencies";
             this.Currencies.Size = new System.Drawing.Size(49, 13);
             this.Currencies.TabIndex = 1;
@@ -269,7 +222,7 @@
             // Amounts
             // 
             this.Amounts.AutoSize = true;
-            this.Amounts.Location = new System.Drawing.Point(686, 66);
+            this.Amounts.Location = new System.Drawing.Point(38, 215);
             this.Amounts.Name = "Amounts";
             this.Amounts.Size = new System.Drawing.Size(43, 13);
             this.Amounts.TabIndex = 1;
@@ -393,9 +346,9 @@
             this.Controls.Add(this.panel3);
             this.Name = "Bills";
             this.Text = "Bills";
-            ((System.ComponentModel.ISupportInitialize)(this.BillsList)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -408,7 +361,6 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2DateTimePicker Date;
-        private Guna.UI2.WinForms.Guna2DataGridView BillsList;
         private System.Windows.Forms.Button Delete;
         private System.Windows.Forms.Button Edit;
         private System.Windows.Forms.Button Save;
@@ -432,5 +384,6 @@
         private System.Windows.Forms.ComboBox Currency;
         private System.Windows.Forms.Label Currencies;
         private System.Windows.Forms.Button btnallbills;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

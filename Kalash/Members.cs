@@ -15,9 +15,6 @@ namespace Kalash
     public partial class Members : Form
     {
         Functions Con;
-        // this.MenuStrip = MenuStrip1;
-        private DataGridView dataGridView;
-        private DataGridView dataGridView1;
 
         public Members()
         {
@@ -26,15 +23,14 @@ namespace Kalash
             ShowMembers();
             GetTrainers();
             GetMemberships();
-            MembersList.Columns[0].Visible = false;
-            //MembersList.Columns[11].Visible = false;
+            dataGridView2.SelectionChanged += dataGridView2_SelectionChanged;
         }
 
         private void ShowMembers()
         {
-            string Query = " SELECT MembersTable.MembersID, CONCAT(MembersTable.MemberFName ,' ', MembersTable.MemberLName, ' ') AS Member , MembersTable.DOB, MembersTable.JoinDate, MembershipsTable.MembershipType, MembersTable.Phone, MembersTable.Timing, MembersTable.BloodType, MembersTable.Gender, CONCAT(TrainersTable.TrainerFName ,' ', TrainersTable.TrainerLName ,' ') AS Trainer  FROM MembersTable JOIN MembershipsTable ON MembersTable.MembershipID = MembershipsTable.MembershipID JOIN TrainersTable ON MembersTable.TrainersID = TrainersTable.TrainersID ";
-            MembersList.DataSource = Con.GetData(Query);
-            MembersList.ClearSelection();
+            string Query = " SELECT MembersTable.MembersID, MembersTable.MemberFName , MembersTable.MemberLName, MembersTable.DOB, MembersTable.JoinDate, MembershipsTable.MembershipID , MembershipsTable.MembershipType, MembersTable.Phone, MembersTable.Timing, MembersTable.BloodType, MembersTable.Gender,  TrainersTable.TrainersID , TrainersTable.TrainerFName , TrainersTable.TrainerLName   FROM MembersTable JOIN MembershipsTable ON MembersTable.MembershipID = MembershipsTable.MembershipID JOIN TrainersTable ON MembersTable.TrainersID = TrainersTable.TrainersID ";
+            dataGridView2.DataSource = Con.GetData(Query);
+            dataGridView2.ClearSelection();
         }
 
         //To get all trainers from table trainers
@@ -111,7 +107,7 @@ namespace Kalash
                 }
                 else
                 {
-                    int Key = int.Parse(MembersList.CurrentRow.Cells[0].Value.ToString());
+                    int Key = int.Parse(dataGridView2.CurrentRow.Cells[0].Value.ToString());
                     string MemFName = MemberFName.Text;
                     string MemLName = MemberLName.Text;
                     string BirthDate = DOB.Value.Date.ToString();
@@ -157,8 +153,6 @@ namespace Kalash
             this.Hide();
         }
 
-       
-
         private void trainerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Trainers Obj = new Trainers();
@@ -173,35 +167,34 @@ namespace Kalash
             this.Hide();
         }     
 
-        private void MembersList_SelectionChanged(object sender, EventArgs e)
-        {
-           
-            DataGridView dtg = new DataGridView();
-            dtg = MembersList;
-            //MemberFName.Text = MembersList.CurrentRow.Cells[1].Value.ToString();
-            //MemberLName.Text = MembersList.CurrentRow.Cells[1].Value.ToString();
-            string[] Members = MembersList.CurrentRow.Cells[1].Value.ToString().Split(' ');
-            MemberFName.Text = Members[0];
-            MemberLName.Text = Members[1];
-            DOB.Text = MembersList.CurrentRow.Cells[2].Value.ToString();
-            JoinDate.Text = MembersList.CurrentRow.Cells[3].Value.ToString();
-            MembershipType.Text = MembersList.CurrentRow.Cells[4].Value.ToString();
-            Phone.Text = MembersList.CurrentRow.Cells[5].Value.ToString(); 
-            Timing.Text = MembersList.CurrentRow.Cells[6].Value.ToString();
-            BloodType.Text = MembersList.CurrentRow.Cells[7].Value.ToString();
-            Gender.Text = MembersList.CurrentRow.Cells[8].Value.ToString();
-            Trainer.Text = MembersList.CurrentRow.Cells[9].Value.ToString();
-        }
-
         private void Logout_Click(object sender, EventArgs e)
         {
             Application.Restart();
         }
 
-        private void paymentsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void Members_Load(object sender, EventArgs e)
         {
-            PaymentForm paymentForm = new PaymentForm(dataGridView1);
-            paymentForm.Show();
+            // TODO: This line of code loads data into the 'kalashDBDataSet8.MembersTable' table. You can move, or remove it, as needed.
+            this.membersTableTableAdapter.Fill(this.kalashDBDataSet8.MembersTable);
+        }
+
+        private void dataGridView2_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView2.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dataGridView2.SelectedRows[0];
+
+                MemberFName.Text = dataGridView2.CurrentRow.Cells[1].Value.ToString();
+                MemberLName.Text = dataGridView2.CurrentRow.Cells[2].Value.ToString();
+                DOB.Text = dataGridView2.CurrentRow.Cells[3].Value.ToString();
+                JoinDate.Text = dataGridView2.CurrentRow.Cells[4].Value.ToString();
+                MembershipType.Text = dataGridView2.CurrentRow.Cells[5].Value.ToString();
+                Phone.Text = dataGridView2.CurrentRow.Cells[6].Value.ToString();
+                Timing.Text = dataGridView2.CurrentRow.Cells[7].Value.ToString();
+                BloodType.Text = dataGridView2.CurrentRow.Cells[8].Value.ToString();
+                Gender.Text = dataGridView2.CurrentRow.Cells[9].Value.ToString();
+                Trainer.Text = dataGridView2.CurrentRow.Cells[10].Value.ToString();
+            }
         }
     }
 

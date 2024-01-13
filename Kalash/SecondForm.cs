@@ -21,14 +21,13 @@ namespace Kalash
             InitializeComponent();
             Con = new Functions();
             ShowBills();
-            BillsList.Columns[4].Visible = false;
             LoadDataAndCalculateTotals();
         }
 
         private void ShowBills()
         {
             string Query = "SELECT CONCAT(MembersTable.MemberFName ,' ', MembersTable.MemberLName ,' ') AS Member , BillsTable.Date, BillsTable.Amount , BillsTable.Currency, BillsTable.BillId FROM MembersTable INNER JOIN BillsTable ON MembersTable.MembersID = BillsTable.MembersID";
-            BillsList.DataSource = Con.GetData(Query);
+            dataGridView1.DataSource = Con.GetData(Query);
         }
 
 
@@ -67,11 +66,11 @@ namespace Kalash
             int printWidth = 800; // Adjust as needed
 
             // Calculate the scale factor to fit the content within the desired width
-            float scale = printWidth / (float)BillsList.Width;
+            float scale = printWidth / (float)dataGridView1.Width;
 
             // Create a new bitmap with the adjusted width
-            Bitmap bitmap = new Bitmap((int)(BillsList.Width * scale), (int)(BillsList.Height * scale));
-            BillsList.DrawToBitmap(bitmap, new Rectangle(0, 0, bitmap.Width, bitmap.Height));
+            Bitmap bitmap = new Bitmap((int)(dataGridView1.Width * scale), (int)(dataGridView1.Height * scale));
+            dataGridView1.DrawToBitmap(bitmap, new Rectangle(0, 0, bitmap.Width, bitmap.Height));
 
             // Draw the scaled bitmap on the printed page
             e.Graphics.DrawImage(bitmap, new Point(10, 50)); // Adjust the location as needed
@@ -82,14 +81,14 @@ namespace Kalash
 
             string searchTerm = SearchTxtBox.Text.Trim();
             BindingSource bs = new BindingSource();
-            bs.DataSource = BillsList.DataSource;
+            bs.DataSource = dataGridView1.DataSource;
             bs.Filter = string.Format("Member LIKE '%{0}%'", searchTerm);
-            BillsList.DataSource = bs;
+            dataGridView1.DataSource = bs;
 
             decimal SumD = 0;
             decimal SumLBP = 0;
 
-            foreach (DataGridViewRow row in BillsList.Rows)
+            foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 // Replace "PaymentAmount" and "CurrencyType" with the actual column names in your DataGridView
                 DataGridViewCell paymentCell = row.Cells["Amount"];
@@ -126,31 +125,25 @@ namespace Kalash
             decimal SumD = 0;
             decimal SumLBP = 0;
 
-            foreach (DataGridViewRow row in BillsList.Rows)
+            foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                // Replace "PaymentAmount" and "CurrencyType" with the actual column names in your DataGridView
-                DataGridViewCell paymentCell = row.Cells["Amount"];
-                DataGridViewCell currencyCell = row.Cells["Currency"];
+                // Assuming your amount column is at index 1 and currency column is at index 2
+                decimal amount = Convert.ToDecimal(row.Cells[3].Value);
 
-                // Check if the cells are not null and contain valid values
-                if (paymentCell.Value != null && currencyCell.Value != null)
+                // You can use the currency information if needed
+                string currency = Convert.ToString(row.Cells[4].Value);
+
+
+                // Convert to dollars and Lebanese pounds based on exchange rates
+                if (currency == "$")
                 {
-                    decimal Amount;
-                    if (decimal.TryParse(paymentCell.Value.ToString(), out Amount))
-                    {
-                        string Currency = currencyCell.Value.ToString();
-
-                        // Convert to dollars and Lebanese pounds based on exchange rates
-                        if (Currency == "$")
-                        {
-                            SumD += Amount;
-                        }
-                        else if (Currency == "LBP")
-                        {
-                            SumLBP += Amount;
-                        }
-                    }
+                    SumD += amount;
                 }
+                else if (currency == "LBP")
+                {
+                    SumLBP += amount;
+                }
+
             }
 
             // Display or use the calculated totals
@@ -201,6 +194,13 @@ namespace Kalash
             Payments Obj = new Payments();
             Obj.Show();
             this.Hide();
+        }
+
+        private void SecondForm_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'kalashDBDataSet11.BillsTable' table. You can move, or remove it, as needed.
+            this.billsTableTableAdapter.Fill(this.kalashDBDataSet11.BillsTable);
+
         }
     }
 }

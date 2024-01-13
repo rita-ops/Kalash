@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,18 +14,21 @@ namespace Kalash
     public partial class Trainers : Form
     {
         Functions Con;
+
         public Trainers()
         {
             InitializeComponent();
             Con = new Functions();
             ShowTrainers();
-            TrainersList.Columns[0].Visible = false;
+            dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
         }
 
         private void ShowTrainers()
         {
-            string Query = "Select TrainersTable.TrainersID, CONCAT(TrainersTable.TrainerFName,' ' ,TrainersTable.TrainerLName,' ') As Trainer , TrainersTable.TrainerDOB, TrainersTable.Phone, TrainersTable.Experience, TrainersTable.Address, TrainersTable.Gender, TrainersTable.BloodType from TrainersTable";
-            TrainersList.DataSource = Con.GetData(Query);
+            string Query = "Select TrainersTable.TrainersID, TrainersTable.TrainerFName , TrainersTable.TrainerLName , TrainersTable.TrainerDOB, TrainersTable.Phone, TrainersTable.Experience, TrainersTable.Address, TrainersTable.Gender, TrainersTable.BloodType from TrainersTable";
+            dataGridView1.DataSource = Con.GetData(Query);
+            dataGridView1.ClearSelection();
+
         }
 
         private void Reset()
@@ -81,7 +85,7 @@ namespace Kalash
                 }
                 else
                 {
-                    int Key = int.Parse(TrainersList.SelectedRows[0].Cells[0].Value.ToString());
+                    int Key = int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
                     string FirstName = TrainerFName.Text;
                     string LastName = TrainerLName.Text;
                     string Number = Phone.Text;
@@ -103,46 +107,22 @@ namespace Kalash
             }
         }
 
+
         private void DeleteBtn_Click_Click(object sender, EventArgs e)
         {
-            if (TrainersList.SelectedRows.Count > 0)
-            {
-                DataGridViewRow selectedRow = TrainersList.SelectedRows[0];
-                int rowIndex = selectedRow.Index;
-                Reset();
+            //if (dataGridView1.SelectedRows.Count > 0)
+            //{
+            //    // Assuming "ID" is the primary key column
+            //    int membershipID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["TrainersID"].Value);
 
-                // Assuming your DataGridView is bound to a DataTable
-                DataTable dataTable = (DataTable)TrainersList.DataSource;
-                Reset();
+            //    // Call the function to delete the record
+            //    DeleteRecordFromTable(TrainersID);
 
-                // Remove the row from the DataTable
-                dataTable.Rows.RemoveAt(rowIndex);
-                Reset();
-
-                // Optionally, refresh the DataGridView to reflect the changes
-                TrainersList.Refresh();
-            }
-            else
-            {
-                MessageBox.Show("Please select a row to delete.", "No Row Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        //private void TrainersList_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        //{
-            
-        //}
-
-        private void TrainersList_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-            TrainerFName.Text = TrainersList.SelectedRows[0].Cells[1].Value.ToString();
-            TrainerLName.Text = TrainersList.SelectedRows[0].Cells[2].Value.ToString();
-            TrainerDOB.Text = TrainersList.SelectedRows[0].Cells[3].Value.ToString();
-            Phone.Text = TrainersList.SelectedRows[0].Cells[4].Value.ToString();
-            Experience.Text = TrainersList.SelectedRows[0].Cells[5].Value.ToString();
-            Address.Text = TrainersList.SelectedRows[0].Cells[6].Value.ToString();
-            Gender.Text = TrainersList.SelectedRows[0].Cells[7].Value.ToString();
-            BloodType.Text = TrainersList.SelectedRows[0].Cells[8].Value.ToString();         
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Please select a row to delete.");
+            //}
         }
 
         private void MemberLbl_Click(object sender, EventArgs e)
@@ -164,6 +144,33 @@ namespace Kalash
             Bills Obj = new Bills();
             Obj.Show();
             this.Hide();
+        }
+
+        private void Trainers_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'kalashDBDataSet10.TrainersTable' table. You can move, or remove it, as needed.
+            this.trainersTableTableAdapter.Fill(this.kalashDBDataSet10.TrainersTable);
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+
+                //string[] Trainer = dataGridView1.SelectedRows[0].Cells[1].Value.ToString().Split(' ');
+                //TrainerFName.Text = Trainer[0];
+                //TrainerLName.Text = Trainer[1];
+                
+                TrainerFName.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                TrainerLName.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                TrainerDOB.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+                Phone.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+                Experience.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
+                Address.Text = dataGridView1.SelectedRows[0].Cells[6].Value.ToString();
+                Gender.Text = dataGridView1.SelectedRows[0].Cells[7].Value.ToString();
+                BloodType.Text = dataGridView1.SelectedRows[0].Cells[8].Value.ToString();
+            }
         }
 
        

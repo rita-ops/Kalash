@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SecondForm));
             this.panel3 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.LblTotalLBP = new System.Windows.Forms.TextBox();
             this.LblTotalDol = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -40,7 +39,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.SearchTxtBox = new System.Windows.Forms.TextBox();
             this.Search = new System.Windows.Forms.Label();
-            this.BillsList = new Guna.UI2.WinForms.Guna2DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -51,17 +49,28 @@
             this.MemberLbl = new System.Windows.Forms.Label();
             this.TrainersLbl = new System.Windows.Forms.Label();
             this.Logout = new System.Windows.Forms.Label();
+            this.kalashDBDataSet11 = new Kalash.KalashDBDataSet11();
+            this.billsTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.billsTableTableAdapter = new Kalash.KalashDBDataSet11TableAdapters.BillsTableTableAdapter();
+            this.billIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.membersIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.currencyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BillsList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kalashDBDataSet11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.billsTableBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
             // 
             this.panel3.AutoScroll = true;
             this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.dataGridView1);
             this.panel3.Controls.Add(this.LblTotalLBP);
             this.panel3.Controls.Add(this.LblTotalDol);
             this.panel3.Controls.Add(this.label4);
@@ -69,17 +78,33 @@
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.SearchTxtBox);
             this.panel3.Controls.Add(this.Search);
-            this.panel3.Controls.Add(this.BillsList);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Location = new System.Drawing.Point(169, 1);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1213, 742);
             this.panel3.TabIndex = 15;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.billIdDataGridViewTextBoxColumn,
+            this.membersIDDataGridViewTextBoxColumn,
+            this.dateDataGridViewTextBoxColumn,
+            this.amountDataGridViewTextBoxColumn,
+            this.currencyDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.billsTableBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(232, 121);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(491, 463);
+            this.dataGridView1.TabIndex = 19;
+            // 
             // LblTotalLBP
             // 
             this.LblTotalLBP.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTotalLBP.Location = new System.Drawing.Point(1009, 656);
+            this.LblTotalLBP.Location = new System.Drawing.Point(520, 595);
             this.LblTotalLBP.Name = "LblTotalLBP";
             this.LblTotalLBP.Size = new System.Drawing.Size(100, 24);
             this.LblTotalLBP.TabIndex = 18;
@@ -87,7 +112,7 @@
             // LblTotalDol
             // 
             this.LblTotalDol.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTotalDol.Location = new System.Drawing.Point(861, 658);
+            this.LblTotalDol.Location = new System.Drawing.Point(356, 595);
             this.LblTotalDol.Name = "LblTotalDol";
             this.LblTotalDol.Size = new System.Drawing.Size(100, 24);
             this.LblTotalDol.TabIndex = 18;
@@ -97,7 +122,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.DarkRed;
-            this.label4.Location = new System.Drawing.Point(967, 660);
+            this.label4.Location = new System.Drawing.Point(462, 597);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(19, 20);
             this.label4.TabIndex = 17;
@@ -108,7 +133,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.DarkRed;
-            this.label3.Location = new System.Drawing.Point(1115, 660);
+            this.label3.Location = new System.Drawing.Point(626, 597);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(42, 20);
             this.label3.TabIndex = 17;
@@ -119,7 +144,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DarkRed;
-            this.label1.Location = new System.Drawing.Point(792, 660);
+            this.label1.Location = new System.Drawing.Point(290, 597);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 20);
             this.label1.TabIndex = 17;
@@ -142,59 +167,6 @@
             this.Search.Size = new System.Drawing.Size(41, 13);
             this.Search.TabIndex = 15;
             this.Search.Text = "Search";
-            // 
-            // BillsList
-            // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.BillsList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.BillsList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Raised;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.BillsList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.BillsList.ColumnHeadersHeight = 50;
-            this.BillsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.BillsList.DefaultCellStyle = dataGridViewCellStyle3;
-            this.BillsList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.BillsList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.BillsList.Location = new System.Drawing.Point(99, 59);
-            this.BillsList.Name = "BillsList";
-            this.BillsList.RowHeadersVisible = false;
-            this.BillsList.RowTemplate.Height = 40;
-            this.BillsList.Size = new System.Drawing.Size(1068, 591);
-            this.BillsList.TabIndex = 12;
-            this.BillsList.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.BillsList.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.BillsList.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.BillsList.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.BillsList.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.BillsList.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.BillsList.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.BillsList.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.BillsList.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Raised;
-            this.BillsList.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BillsList.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.BillsList.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.BillsList.ThemeStyle.HeaderStyle.Height = 50;
-            this.BillsList.ThemeStyle.ReadOnly = false;
-            this.BillsList.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.BillsList.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.BillsList.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BillsList.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.BillsList.ThemeStyle.RowsStyle.Height = 40;
-            this.BillsList.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.BillsList.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
             // label2
             // 
@@ -309,6 +281,53 @@
             this.Logout.Text = "Logout";
             this.Logout.Click += new System.EventHandler(this.Logout_Click);
             // 
+            // kalashDBDataSet11
+            // 
+            this.kalashDBDataSet11.DataSetName = "KalashDBDataSet11";
+            this.kalashDBDataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // billsTableBindingSource
+            // 
+            this.billsTableBindingSource.DataMember = "BillsTable";
+            this.billsTableBindingSource.DataSource = this.kalashDBDataSet11;
+            // 
+            // billsTableTableAdapter
+            // 
+            this.billsTableTableAdapter.ClearBeforeFill = true;
+            // 
+            // billIdDataGridViewTextBoxColumn
+            // 
+            this.billIdDataGridViewTextBoxColumn.DataPropertyName = "BillId";
+            this.billIdDataGridViewTextBoxColumn.HeaderText = "BillId";
+            this.billIdDataGridViewTextBoxColumn.Name = "billIdDataGridViewTextBoxColumn";
+            this.billIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.billIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // membersIDDataGridViewTextBoxColumn
+            // 
+            this.membersIDDataGridViewTextBoxColumn.DataPropertyName = "MembersID";
+            this.membersIDDataGridViewTextBoxColumn.HeaderText = "Members Name";
+            this.membersIDDataGridViewTextBoxColumn.Name = "membersIDDataGridViewTextBoxColumn";
+            this.membersIDDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // dateDataGridViewTextBoxColumn
+            // 
+            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
+            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
+            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            // 
+            // amountDataGridViewTextBoxColumn
+            // 
+            this.amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
+            this.amountDataGridViewTextBoxColumn.HeaderText = "Amount";
+            this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
+            // 
+            // currencyDataGridViewTextBoxColumn
+            // 
+            this.currencyDataGridViewTextBoxColumn.DataPropertyName = "Currency";
+            this.currencyDataGridViewTextBoxColumn.HeaderText = "Currency";
+            this.currencyDataGridViewTextBoxColumn.Name = "currencyDataGridViewTextBoxColumn";
+            // 
             // SecondForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -319,14 +338,17 @@
             this.Name = "SecondForm";
             this.Text = "SecondForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.SecondForm_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BillsList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kalashDBDataSet11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.billsTableBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -343,7 +365,6 @@
         private System.Windows.Forms.Label MemberLbl;
         private System.Windows.Forms.Label TrainersLbl;
         private System.Windows.Forms.Label Logout;
-        private Guna.UI2.WinForms.Guna2DataGridView BillsList;
         private System.Windows.Forms.TextBox SearchTxtBox;
         private System.Windows.Forms.Label Search;
         private System.Windows.Forms.TextBox LblTotalLBP;
@@ -351,5 +372,14 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private KalashDBDataSet11 kalashDBDataSet11;
+        private System.Windows.Forms.BindingSource billsTableBindingSource;
+        private KalashDBDataSet11TableAdapters.BillsTableTableAdapter billsTableTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn billIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn membersIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn currencyDataGridViewTextBoxColumn;
     }
 }
