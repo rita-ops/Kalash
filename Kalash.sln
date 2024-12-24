@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kalash", "Kalash.csproj", "{E23C00FF-D9A5-4450-BC0F-F4BC76073AF4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E23C00FF-D9A5-4450-BC0F-F4BC76073AF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E23C00FF-D9A5-4450-BC0F-F4BC76073AF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E23C00FF-D9A5-4450-BC0F-F4BC76073AF4}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{E23C00FF-D9A5-4450-BC0F-F4BC76073AF4}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C7EBD2DF-E693-4034-B9EB-C2668B5D6DB5}
+	EndGlobalSection
+EndGlobal
